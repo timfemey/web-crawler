@@ -4,12 +4,12 @@ import (
 	"sync"
 )
 
-func CrawlFunc() {
+func CrawlFunc(sites []string) {
 	WebsitesChannel := make(chan string)
 	crawledSitesChannel := make(chan string)
 	pendingSitesChannel := make(chan int)
 
-	sitesToCrawl := []string{"https://theuselessweb.com/"}
+	sitesToCrawl := sites
 
 	go func() {
 		for i := 0; len(sitesToCrawl) > i; i++ {
