@@ -27,7 +27,7 @@ func CrawlFunc() {
 	numOfThreads := 35
 	for i := 0; i < numOfThreads; i++ {
 		wg.Add(1)
-
+		go CrawlWebPage(&wg, WebsitesChannel, crawledSitesChannel, pendingSitesChannel)
 	}
 	wg.Wait()
 }
